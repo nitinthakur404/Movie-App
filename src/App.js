@@ -1,23 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
+import './testuser.css'
+import { useState, useEffect } from 'react';
+import Navbar from './pages/Navbar';
+import HomeSlider from './pages/HomeSlider';
+import Home from './pages/Home';
 
-function App() {
+
+
+// "backdrop_path
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="flex  justify-center flex-col">
+      <div className='p-1  '>
+        <Navbar />
+      </div>
+      <div className='w-full  h-full z-30 '>
+        <Home />
+      </div>
     </div>
   );
 }
