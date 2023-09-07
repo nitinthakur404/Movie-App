@@ -14,7 +14,7 @@ const withAuth = async ({ endPoint, options }) => {
     }
 
     try {
-        const FetchRespones = await fetch(`https://api.themoviedb.org/3/${endPoint}?${apiKey}&language=en-US`, options)
+        const FetchRespones = await fetch(`https://api.themoviedb.org/3/${endPoint}?${apiKey}`, options)
         const data = await FetchRespones.json();
         return data
     }
