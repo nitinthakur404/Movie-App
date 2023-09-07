@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
+import Navlink from './Navlink'
 
 function Navbar() {
     const [toggle, settoggle] = useState("hidden")
-
 
     const UpdateToggle = () => {
         settoggle(toggle == "hidden" ? 'block' : "hidden")
@@ -23,10 +24,12 @@ function Navbar() {
                     </svg>
                 </button>
                 <div class={`${toggle} w-full md:block md:w-auto `} id="navbar-default ">
-                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700  ">
-
+                    <ul class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700   transition-[display] duration-500 ease-out ">
                         <li>
-                            <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110">Popular</a>
+                            <Link to="/" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110">Home</Link>
+                        </li>
+                        <li>
+                            <Link to="/Popular" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110">Popular</Link>
                         </li>
                         <li>
                             <a href="#" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent transition ease-in-out delay-150  hover:-translate-y-1 hover:scale-110">Upcoming</a>
@@ -38,9 +41,11 @@ function Navbar() {
                     </ul>
                 </div>
             </div>
+
         </nav>
 
     )
 }
+
 
 export default Navbar
