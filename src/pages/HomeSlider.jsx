@@ -3,15 +3,14 @@ import { Carousel } from 'react-responsive-carousel'
 import withAuth from '../utile/withAuth'
 import { AiFillStar } from 'react-icons/ai'
 
-function HomeSlider() {
+function    HomeSlider() {
     const [movieDetails, setmovieDetails] = useState([])
 
     useEffect(() => {
         let respones = withAuth({
             endPoint: "movie/popular",
-            options: {
-                method: "GET"
-            }
+            method: "GET"
+
 
         })
         respones.then((data) => {
@@ -21,8 +20,8 @@ function HomeSlider() {
 
     return (
         <div>
-            <Carousel showArrows={false} autoPlay={true} interval={2000} infiniteLoop={true}
-                showIndicators={false} showThumbs={false} showStatus={false}>
+            <Carousel showArrows={false} autoPlay={true} interval={1800} infiniteLoop={true}
+                showIndicators={true} showThumbs={false} showStatus={false}>
 
                 {movieDetails.map((value) => {
                     return (

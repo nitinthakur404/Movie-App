@@ -7,7 +7,7 @@ export const theme = {
     'es': "220px",
     'sm': '660px',
     // => @media (min-width: 640px) { ... }
-
+    'xs': '550px',
     'md': '768px',
     // => @media (min-width: 768px) { ... }
 

@@ -2,22 +2,23 @@ import React, { useEffect, useState } from 'react'
 import Skeleton from 'react-loading-skeleton'
 import withAuth from '../utile/withAuth'
 import { AiFillStar } from 'react-icons/ai'
+import { useNavigate } from "react-router-dom";
 
 function Card({ MovieValue }) {
+    let history = useNavigate()
     const [loading, setloading] = useState(true)
 
-    console.log(MovieValue, "MovieValue")
     setTimeout(() => {
         setloading(false)
-    }, 2000);
+    }, 2500);
 
     return (
-        <div className='flex flex-wrap mx-4  max-xl:justify-center  '>
+        <div className='flex flex-wrap mx-4 justify-start max-lg:justify-center'>
             {MovieValue?.map((value) => {
-
                 return (
-                    <div className='flex mt-2' onClick={() => {
-                        console.log(value.id)
+                    <div className='flex mt-2 items-baseline' onClick={() => {
+                        history(`/pageDetails`, { state: { id: value.id } });
+
                     }}>
                         {loading ? <Skeleton className='w-36 mx-2 rounded-md hover:scale-110 transition duration-500 cursor-pointer object-cover' width={"144px"} height={"208px"} baseColor='#b8bcc1' /> :
                             <div className=' relative w-36 h-52 mx-2 text-white   rounded-xl  mt-6 hover:scale-110 transition  duration-500 cursor-pointer group'>
@@ -49,5 +50,3 @@ function Card({ MovieValue }) {
 }
 
 export default Card
-
-{/*  */ }

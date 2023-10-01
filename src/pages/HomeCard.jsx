@@ -1,14 +1,15 @@
-import React from 'react'
-import { useState, useEffect } from 'react';
-import Card from '../Card';
-import withAuth from '../../utile/withAuth';
+import React, { useEffect, useState } from 'react'
+import withAuth from '../utile/withAuth'
+import Card from './Card'
+import { AiOutlineConsoleSql } from 'react-icons/ai';
 
-function UpcomingPage() {
-    const [PopularMovie, setPopularMovie] = useState([])
+
+
+function HomeCard() {
+    const [movieDetails, setmovieDetails] = useState([])
     const [MoiveGet, setMovieGet] = useState([])
     const [scrollPosition, setScrollPosition] = useState(0);
     const [pageNo, setpageNO] = useState(1)
-
 
     useEffect(() => {
         fatchMovieDetails()
@@ -17,11 +18,11 @@ function UpcomingPage() {
     const fatchMovieDetails = () => {
         console.log(pageNo)
         const data = withAuth({
-            endPoint: `movie/upcoming?page=${pageNo}`,
+            endPoint: `movie/popular?page=${pageNo}`,
             method: "get"
         })
         data.then((respones) => {
-            setPopularMovie((prev) => [...prev, ...respones.results])
+            setmovieDetails((prev) => [...prev, ...respones.results])
         })
     }
     const infiniateFetch = async () => {
@@ -42,16 +43,18 @@ function UpcomingPage() {
             window.removeEventListener('scroll', infiniateFetch);
         };
     }, []);
+
+
     return (
-        <div className="max-w-screen-3xl flex flex-col  my-3  ">
+        <div className="max-w-screen-3xl flex flex-col  my-5  ">
             <div className='flex justify-center '>
-                <span className=' text-[20px] font-bold ' > Upcoming Movies </span>
+                <span className=' text-[20px] font-bold text-black ' > Upcoming Movies </span>
             </div>
             <div className=''>
-                <Card MovieValue={PopularMovie} />
+                <Card MovieValue={movieDetails} />
             </div>
         </div>
     )
 }
 
-export default UpcomingPage
+export default HomeCard
