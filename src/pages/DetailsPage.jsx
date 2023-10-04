@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useParams } from 'react-router-dom'
 import withAuth from '../utile/withAuth'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { BsFillPlayFill } from 'react-icons/bs'
@@ -8,17 +8,21 @@ import CastAndCrew from './CastAndCrew';
 import Recomendation from './Componant/Recomendation';
 import MoiveMedia from './Componant/MoiveMedia';
 
-function DetailsPage() {
+function DetailsPage({ match }) {
+    console.log(match, "match")
     const location = useLocation()
+    const { id } = useParams()
     const [movieDetails, setmovieDetails] = useState([])
     const [movieTrailer, setMovieTrailer] = useState("")
     const [openmodal, setopenmodal] = useState(false)
     const [castCraw, setCastCrew] = useState([])
     const [socialMediaID, setSocialMediaID] = useState([])
     const [movieRecommendation, setMovieRecommendation] = useState([])
+
+    console.log(id, "id")
     useEffect(() => {
         const data = withAuth({
-            endPoint: `movie/${location.state.id}?append_to_response=videos`,
+            endPoint: `movie/${id}?append_to_response=videos`,
             method: "get"
         })
         data.then((respones) => {
@@ -37,7 +41,7 @@ function DetailsPage() {
 
     const RecommendationsMoive = () => {
         const data = withAuth({
-            endPoint: `movie/${location.state.id}/recommendations`,
+            endPoint: `movie/${id}/recommendations`,
             method: "get"
         })
         data.then((respones) => {
@@ -50,7 +54,7 @@ function DetailsPage() {
 
     const getCastCrew = () => {
         const data = withAuth({
-            endPoint: `movie/${location.state.id}?append_to_response=credits`,
+            endPoint: `movie/${id}?append_to_response=credits`,
             method: "get"
         })
         data.then((respones) => {
@@ -60,7 +64,7 @@ function DetailsPage() {
 
     const fetchSocialMedia = () => {
         const data = withAuth({
-            endPoint: `movie/${location.state.id}/external_ids`,
+            endPoint: `movie/${id}/external_ids`,
             method: "get"
         })
         data.then((respones) => {
@@ -131,7 +135,7 @@ function DetailsPage() {
                     <CastAndCrew CastCrewProps={castCraw} socialMedia={socialMediaID} movieDetails={movieDetails} />
                 </div>
                 <div className='mx-2 w-full relative bottom-20 '>
-                    <Recomendation RecomendationDetails={movieRecommendation} />
+                    <Recomendation RecomendationDetails={movieRecommendation} RecomendatedMoiveTitle={movieDetails.original_title} />
                 </div>
 
             </div>
