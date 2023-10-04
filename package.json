@@ -48,5 +48,10 @@
   },
   "devDependencies": {
     "tailwindcss": "^3.3.3"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nitinthakur404/Movie-App"
   }
 }

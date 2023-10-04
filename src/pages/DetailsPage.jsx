@@ -1,10 +1,13 @@
 import { useEffect, useState } from 'react'
-import { useLocation, useSearchParams } from 'react-router-dom'
+import { useLocation } from 'react-router-dom'
 import withAuth from '../utile/withAuth'
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import { BsFillPlayFill } from 'react-icons/bs'
 import VideoShowModal from './Componant/VideoShowModal';
 import CastAndCrew from './CastAndCrew';
+import Recomendation from './Componant/Recomendation';
+import MoiveMedia from './Componant/MoiveMedia';
+
 function DetailsPage() {
     const location = useLocation()
     const [movieDetails, setmovieDetails] = useState([])
@@ -12,6 +15,7 @@ function DetailsPage() {
     const [openmodal, setopenmodal] = useState(false)
     const [castCraw, setCastCrew] = useState([])
     const [socialMediaID, setSocialMediaID] = useState([])
+    const [movieRecommendation, setMovieRecommendation] = useState([])
     useEffect(() => {
         const data = withAuth({
             endPoint: `movie/${location.state.id}?append_to_response=videos`,
@@ -19,23 +23,28 @@ function DetailsPage() {
         })
         data.then((respones) => {
             setmovieDetails(respones)
-        })
-        movieVideo()
-        getCastCrew()
-        fetchSocialMedia()
-    }, [location])
-
-    const movieVideo = () => {
-        const data = withAuth({
-            endPoint: `movie/${location.state.id}?append_to_response=videos`,
-            method: "get"
-        })
-        data.then((respones) => {
             respones.videos.results.filter((value) => {
                 if (value.name.includes("Trailer")) {
                     setMovieTrailer(value.key)
                 }
             })
+
+        })
+        RecommendationsMoive()
+        getCastCrew()
+        fetchSocialMedia()
+    }, [location])
+
+    const RecommendationsMoive = () => {
+        const data = withAuth({
+            endPoint: `movie/${location.state.id}/recommendations`,
+            method: "get"
+        })
+        data.then((respones) => {
+            console.log(respones.results
+                , "/recommendations")
+            setMovieRecommendation(respones.results)
+
         })
     }
 
@@ -121,6 +130,10 @@ function DetailsPage() {
                 <div className='mx-2 w-full'>
                     <CastAndCrew CastCrewProps={castCraw} socialMedia={socialMediaID} movieDetails={movieDetails} />
                 </div>
+                <div className='mx-2 w-full relative bottom-20 '>
+                    <Recomendation RecomendationDetails={movieRecommendation} />
+                </div>
+
             </div>
         </div>
     )

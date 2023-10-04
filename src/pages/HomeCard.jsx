@@ -16,7 +16,6 @@ function HomeCard() {
     }, [pageNo])
 
     const fatchMovieDetails = () => {
-        console.log(pageNo)
         const data = withAuth({
             endPoint: `movie/popular?page=${pageNo}`,
             method: "get"
@@ -32,7 +31,6 @@ function HomeCard() {
             }
         }
         catch (error) {
-            console.log(error)
         }
     }
 

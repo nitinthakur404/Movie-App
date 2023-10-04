@@ -5,7 +5,7 @@ function CastAndCrew({ CastCrewProps, socialMedia, movieDetails }) {
 
     return (
         <div className=" cursor-pointer flex flex-col m-2 my-6 text-stone-50 w-full">
-            <span className=" font-semibold mx-2 text-neutral-900 " style={{ fontFamily: "sandRegular" }}>Top Billed Cast</span>
+            <span className=" font-semibold text-2xl mx-2 my-2 text-neutral-900 " style={{ fontFamily: "sandRegular" }}>Top Billed Cast</span>
             <div className="flex flex-wrap justify-center" >
                 <div className="flex items-center  w-[73%] h-[330px] overflow-auto">
                     {CastCrewProps.credits?.cast.map((CastDetails) => {
@@ -19,7 +19,7 @@ function CastAndCrew({ CastCrewProps, socialMedia, movieDetails }) {
                         </>
                     })}
                 </div>
-                <div className=" relative bottom-[46px] mt-4 mx-3 w-[290px] border h-96  border-r-1 border-blue-500 rounded-md ">
+                <div className=" relative bottom-[46px] mt-4 mx-3 w-[290px] border h-[380px]  border-r-1 border-blue-500 rounded-md ">
                     <UsefullDetails socialMedia={socialMedia} movieDetails={movieDetails} />
                 </div>
             </div>

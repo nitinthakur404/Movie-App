@@ -16,7 +16,6 @@ function TopRated() {
     }, [pageNo])
 
     const fatchMovieDetails = () => {
-        console.log(pageNo)
         const data = withAuth({
             endPoint: `movie/top_rated?page=${pageNo}`,
             method: "get"
@@ -32,7 +31,6 @@ function TopRated() {
             }
         }
         catch (error) {
-            console.log(error)
         }
     }
 

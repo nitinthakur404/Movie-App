@@ -15,7 +15,6 @@ function UpcomingPage() {
     }, [pageNo])
 
     const fatchMovieDetails = () => {
-        console.log(pageNo)
         const data = withAuth({
             endPoint: `movie/upcoming?page=${pageNo}`,
             method: "get"
@@ -31,7 +30,6 @@ function UpcomingPage() {
             }
         }
         catch (error) {
-            console.log(error)
         }
     }
 
