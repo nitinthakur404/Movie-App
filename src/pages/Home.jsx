@@ -1,14 +1,13 @@
 import React from 'react'
 import HomeSlider from './HomeSlider'
-import PopularHome from './PopularHome'
+import HomeCard from './HomeCard'
 import Card from './Card'
 
 function Home() {
     return (
         <div className='flex flex-col'>
             <HomeSlider />
-            <PopularHome />
-
+            <HomeCard />
         </div>
     )
 }
