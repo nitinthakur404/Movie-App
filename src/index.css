@@ -50,6 +50,7 @@ code {
 ::-webkit-scrollbar-thumb {
   background: #888;
   border-radius: 5px;
+  position: relative;
 }
 
 /* Handle on hover */

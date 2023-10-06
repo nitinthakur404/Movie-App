@@ -2,6 +2,7 @@ import './App.css';
 import './testuser.css'
 import Navbar from './pages/Navbar';
 import Navlink from './pages/Navlink';
+import TMDBFooter from './pages/Componant/TMDBFooter';
 
 
 // "backdrop_path

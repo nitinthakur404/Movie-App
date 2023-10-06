@@ -6,10 +6,7 @@ import withAuth from '../utile/withAuth';
 function TopRated() {
 
     const [PopularMovie, setPopularMovie] = useState([])
-    const [MoiveGet, setMovieGet] = useState([])
-    const [scrollPosition, setScrollPosition] = useState(0);
     const [pageNo, setpageNO] = useState(1)
-
 
     useEffect(() => {
         fatchMovieDetails()
