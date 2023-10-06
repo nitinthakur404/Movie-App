@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import Navlink from './Navlink'
 import Logo from '../image/TMDB.png'
 
 function Navbar() {
@@ -13,10 +12,10 @@ function Navbar() {
     return (
         <nav class="border-gray-200 dark:bg-gray-900 rounded-lg m-2 z-40 relative" style={{ backgroundColor: "#314154" }} >
             <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto px-4">
-                <a href="/" class="flex items-center">
+                <Link to="/" class="flex items-center">
                     <img src={Logo} class="h-14 mr-3" alt="Flowbite Logo" />
                     <span class="self-center text-2xl font-semibold whitespace-nowrap  max-sm:hidden dark:text-white">TMDB</span>
-                </a>
+                </Link>
                 <button onClick={() => { UpdateToggle() }} class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600" aria-controls="navbar-default" aria-expanded="false">
 
 

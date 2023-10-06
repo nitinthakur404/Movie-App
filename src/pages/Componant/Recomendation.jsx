@@ -6,9 +6,8 @@ const Recomendation = ({ RecomendationDetails, RecomendatedMoiveTitle }) => {
         <div className=" cursor-pointer flex flex-col mx-3 text-stone-50 w-7/8  ">
             <span className=" font-semibold text-1xl mx-2 my-2 text-neutral-900 " style={{ fontFamily: "sandRegular" }}>Recommendations</span>
 
-
             {RecomendationDetails.length != 0 ?
-                <div className="flex flex-col justify-center content-start text-black w-[75%] h-[200px] overflow-auto mx-2 flex-wrap " >
+                <div className="flex flex-col justify-center content-start text-black w-[75%] max-md:w-[98%] h-[200px] overflow-auto mx-2 flex-wrap " >
                     {RecomendationDetails.map((items) => {
                         return (
                             items.backdrop_path && <div className=" w-[250px] h-[190px] mx-[4px] mt-2 " onClick={() => { window.location.reload() }} >

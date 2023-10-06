@@ -18,9 +18,12 @@ function DetailsPage({ match }) {
     const [castCraw, setCastCrew] = useState([])
     const [socialMediaID, setSocialMediaID] = useState([])
     const [movieRecommendation, setMovieRecommendation] = useState([])
+    const [movieImages, setMovieImages] = useState([])
 
-    console.log(id, "id")
+
     useEffect(() => {
+
+        window.scrollTo(0, 0)
         const data = withAuth({
             endPoint: `movie/${id}?append_to_response=videos`,
             method: "get"
@@ -34,10 +37,11 @@ function DetailsPage({ match }) {
             })
 
         })
-        RecommendationsMoive()
         getCastCrew()
+        RecommendationsMoive()
         fetchSocialMedia()
-    }, [location])
+        fetchMovieImages()
+    }, [id])
 
     const RecommendationsMoive = () => {
         const data = withAuth({
@@ -71,6 +75,17 @@ function DetailsPage({ match }) {
             setSocialMediaID(respones)
         })
     }
+
+    const fetchMovieImages = () => {
+        const data = withAuth({
+            endPoint: `movie/${id}/images`,
+            method: "get"
+        })
+        data.then((respones) => {
+            setMovieImages(respones)
+        })
+    }
+
     return (
         <div className=''>
             <div className='flex flex-col' >
@@ -133,6 +148,10 @@ function DetailsPage({ match }) {
 
                 <div className='mx-2 w-full'>
                     <CastAndCrew CastCrewProps={castCraw} socialMedia={socialMediaID} movieDetails={movieDetails} />
+                </div>
+
+                <div className='mx-2 w-full  relative bottom-20'>
+                    <MoiveMedia MovieVideo={movieDetails} movieImages={movieImages} />
                 </div>
                 <div className='mx-2 w-full relative bottom-20 '>
                     <Recomendation RecomendationDetails={movieRecommendation} RecomendatedMoiveTitle={movieDetails.original_title} />

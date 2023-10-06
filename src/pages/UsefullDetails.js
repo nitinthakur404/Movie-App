@@ -1,5 +1,5 @@
 import React from 'react'
-import { FaFacebookSquare, FaLink } from "react-icons/fa"
+import { FaFacebookSquare } from "react-icons/fa"
 import { BiLogoTwitter, BiLogoInstagram } from "react-icons/bi"
 import { PiSwatchesFill } from "react-icons/pi"
 import { Link } from 'react-router-dom'
