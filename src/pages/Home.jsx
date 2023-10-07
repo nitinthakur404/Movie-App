@@ -5,8 +5,10 @@ import Card from './Card'
 
 function Home() {
     return (
-        <div className='flex flex-col'>
-            <HomeSlider />
+        <div className='w-full'>
+            <div className='flex' >
+                <HomeSlider />
+            </div>
             <HomeCard />
         </div>
     )
