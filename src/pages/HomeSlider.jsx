@@ -3,7 +3,7 @@ import { Carousel } from 'react-responsive-carousel'
 import withAuth from '../utile/withAuth'
 import { AiFillStar } from 'react-icons/ai'
 
-function    HomeSlider() {
+function HomeSlider() {
     const [movieDetails, setmovieDetails] = useState([])
 
     useEffect(() => {
@@ -15,6 +15,7 @@ function    HomeSlider() {
         })
         respones.then((data) => {
             setmovieDetails(data.results)
+
         })
     }, [])
 
