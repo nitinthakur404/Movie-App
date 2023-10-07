@@ -10,7 +10,7 @@ const Recomendation = ({ RecomendationDetails, RecomendatedMoiveTitle }) => {
                 <div className="flex flex-col justify-center content-start text-black w-[75%] max-md:w-[98%] h-[200px] overflow-auto mx-2 flex-wrap " >
                     {RecomendationDetails.map((items) => {
                         return (
-                            items.backdrop_path && <div className=" w-[250px] h-[190px] mx-[4px] mt-2 " onClick={() => { window.location.reload() }} >
+                            items.backdrop_path && <div className=" w-[250px] h-[190px] mx-[4px] mt-2"  >
                                 <Link to={`/pageDetails/${items.id}/${items.title}`}>
                                     <div>
                                         <img src={`https://www.themoviedb.org/t/p/w250_and_h141_face/${items.backdrop_path}`} className=' rounded-md object-cover transition-opacity duration-300 hover:opacity-60'></img>
