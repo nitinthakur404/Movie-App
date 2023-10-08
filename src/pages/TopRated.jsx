@@ -39,7 +39,7 @@ function TopRated() {
         };
     }, []);
     return (
-        <div className="max-w-screen-3xl flex flex-col  my-3  ">
+        <div className="max-w-screen-3xl flex flex-col  my-3 justify-center">
             <div className='flex justify-center '>
                 <span className=' text-[20px] font-bold ' > Top Rated Movies </span>
             </div>

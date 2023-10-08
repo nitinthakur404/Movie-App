@@ -13,7 +13,7 @@ function Card({ MovieValue }) {
     }, 2500);
 
     return (
-        <div className='flex flex-wrap mx-4 justify-start max-lg:justify-center'>
+        <div className='flex flex-wrap mx-4 justify-center'>
             {MovieValue?.map((value) => {
                 return (
                     <div className='flex mt-2 items-baseline'>
