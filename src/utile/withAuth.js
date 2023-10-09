@@ -1,16 +1,16 @@
 import fetch from 'node-fetch'
 const withAuth = async ({ endPoint, method }) => {
-    // let apiKey = "api_key=4e44d9029b1270a757cddc766a1bcb63"
+    console.log(process.env.REACT_APP_AUTH_KEY)
     let options = {
         method,
         headers: {
             accept: 'application/json',
-            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIzOWVhNzBlNDg5ZDMzNWM2ODE4OTc4N2Q1MGY1NjBkNSIsInN1YiI6IjYwZDFmNjg1YTI3NTAyMDAyZmJlN2MwNyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.3e1E7Jw_J1REYXt32yW_eRN4AwNqI-ThDrCVfazEgtU'
+            Authorization: process.env.REACT_APP_AUTH_KEY
         },
     }
 
     try {
-        const FetchRespones = await fetch(`https://api.themoviedb.org/3/${endPoint}`, options)
+        const FetchRespones = await fetch(`${process.env.REACT_APP_BASE_URL}${endPoint}`, options)
         const data = await FetchRespones.json();
         return data
     }
