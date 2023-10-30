@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Carousel } from 'react-responsive-carousel'
 import withAuth from '../utile/withAuth'
 import { AiFillStar } from 'react-icons/ai'
+import { TMDBUrl } from '../utile/UtileLinks'
 
 function HomeSlider() {
     const [movieDetails, setmovieDetails] = useState([])
@@ -23,11 +24,11 @@ function HomeSlider() {
         <Carousel className='w-full justify-center mx-2'
             showArrows={false} autoPlay={false} interval={1800} infiniteLoop={true}
             showIndicators={true} showThumbs={false} showStatus={false}>
-            {movieDetails.map((value) => {
+            {movieDetails.map((value, key) => {
                 return (
-                    <div className='flex justify-center max-es:hidden relative w-full  max- flex-wrap '>
-                        <img src={`https://image.tmdb.org/t/p/original/${value.backdrop_path}`} className=' rounded-3xl  max-lg:h-[400px] object-fill block h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70 '>
-                        </img>
+                    <div key={value.id} className='flex justify-center max-es:hidden relative w-full  max- flex-wrap '>
+                        <img src={`${TMDBUrl.OriginalImage}${value.backdrop_path}`} alt={value.original_title}
+                            className=' rounded-3xl  max-lg:h-[400px] object-fill block h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70' />
                         <div className='absolute bg-gradient-to-t from-slate-600 w-[99%]  rounded-3xl  max-lg:h-[400px] object-fill  h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70 items-center justify-center flex '>
 
                             <div className=' text-yellow-50 flex flex-col justify-center items-center mx-2 relative '  >

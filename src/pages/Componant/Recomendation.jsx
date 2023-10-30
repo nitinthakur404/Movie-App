@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { TMDBUrl } from '../../utile/UtileLinks'
 
 const Recomendation = ({ RecomendationDetails, RecomendatedMoiveTitle }) => {
     return (
@@ -12,7 +13,7 @@ const Recomendation = ({ RecomendationDetails, RecomendatedMoiveTitle }) => {
                             items.backdrop_path && <div className=" w-[250px] h-[190px] mx-[4px] mt-2"  >
                                 <Link to={`/pageDetails/${items.id}/${items.title}`}>
                                     <div>
-                                        <img src={`https://www.themoviedb.org/t/p/w250_and_h141_face/${items.backdrop_path}`} className=' rounded-md object-cover transition-opacity duration-300 hover:opacity-60'></img>
+                                        <img src={`${TMDBUrl.Image250w}/${items.backdrop_path}`} className=' rounded-md object-cover transition-opacity duration-300 hover:opacity-60' alt={items.title}></img>
                                     </div>
                                     <div className='flex justify-between text-base mt-1' style={{ fontFamily: "sansPro " }} >
                                         <span >{(items.title?.length > 20) ? items.title.slice(0, 25) + '...'

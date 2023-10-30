@@ -7,7 +7,7 @@ function VideoShowModal({ videoID, openModal, modalHandle }) {
                 <div className="relative top-3 w-full max-w-2xl max-h-full">
                     <div className="relative top-2 bg-black rounded-lg shadow dark:bg-gray-700">
 
-                        <div className=' flex  items-center mx-2 '>
+                        <div className=' flex items-center mx-2 '>
                             <span className='m-2 text-white' style={{ fontFamily: "notosans" }} >Play Trailer</span>
                             <button type="button" onClick={() => { modalHandle(false) }} className="   text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" >
                                 <svg className="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">

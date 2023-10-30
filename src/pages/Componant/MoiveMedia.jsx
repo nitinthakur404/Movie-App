@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import React from 'react'
 import VideoShowModal from './VideoShowModal'
-import PlayButton from '../../image/playButton.svg'
+import { TMDBUrl } from '../../utile/UtileLinks'
 import { FaPlay } from 'react-icons/fa'
 export default function MoiveMedia({ MovieVideo, movieImages }) {
     const [openmodal, setopenmodal] = useState(false)
@@ -53,7 +53,7 @@ export default function MoiveMedia({ MovieVideo, movieImages }) {
                                 <div className="  w-[400px] h-[270px] mx-[1px] mt-2  max-md:w-[300px] 
                   " onClick={() => { setopenmodal(true) }} >
                                     <div>
-                                        <img src={`https://image.tmdb.org/t/p/original/${items.file_path}`} className=' w-[400px] h-[270px] max-md:w-[250px]  max-md:h-[170px] rounded-md  transition-opacity duration-300 hover:opacity-60'></img>
+                                        <img src={`${TMDBUrl.OriginalImage}${items.file_path}`} className=' w-[400px] h-[270px] max-md:w-[250px]  max-md:h-[170px] rounded-md  transition-opacity duration-300 hover:opacity-60'></img>
                                         <div class="play_background"><span class="glyphicons_v2 play invert svg"></span></div>
                                     </div>
                                 </div>

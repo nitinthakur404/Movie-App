@@ -1,16 +1,16 @@
 import React from "react";
 import UsefullDetails from "./UsefullDetails";
 import ErrorIcons from '../image/ErrorIcons.svg'
+import { TMDBUrl } from "../utile/UtileLinks";
 
 function CastAndCrew({ CastCrewProps, socialMedia, movieDetails }) {
-
     return (
         <div className=" cursor-pointer flex flex-col m-2 my-6 text-stone-50 w-full">
             <span className=" font-semibold text-2xl mx-2 my-2 text-neutral-900 " style={{ fontFamily: "sandRegular" }}>Top Billed Cast</span>
             <div className="flex max-md:flex-wrap justify-center" >
                 <div className="flex items-center  w-[73%] h-[330px] max-md:w-[80%] overflow-auto">
                     {CastCrewProps.credits?.cast.map((CastDetails) => {
-                        const ImageUrl = CastDetails.profile_path ? `https://image.tmdb.org/t/p/original/${CastDetails.profile_path}` : ErrorIcons
+                        const ImageUrl = CastDetails.profile_path ? `${TMDBUrl.OriginalImage}/${CastDetails.profile_path}` : ErrorIcons
                         return <>  <div className="border rounded-md mx-1  mt-5 mb-6  w-[140px]  min-h-[270px] bg-white" >
                             <img loading="lazy" src={ImageUrl} className='  w-[143px] h-[180px] rounded-sm ' />
                             <div className="w-[145px] h-[40px] text-black flex flex-col m-1">

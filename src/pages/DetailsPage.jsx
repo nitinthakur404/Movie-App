@@ -7,6 +7,7 @@ import VideoShowModal from './Componant/VideoShowModal';
 import CastAndCrew from './CastAndCrew';
 import Recomendation from './Componant/Recomendation';
 import MoiveMedia from './Componant/MoiveMedia';
+import { TMDBUrl } from '../utile/UtileLinks';
 
 function DetailsPage({ match }) {
     console.log(match, "match")
@@ -90,12 +91,12 @@ function DetailsPage({ match }) {
 
         <div className='' >
             <div className='flex justify-center max-es:hidden relative w-full  max- flex-wrap'>
-                <img src={`https://image.tmdb.org/t/p/original/${movieDetails.backdrop_path}`} className={` w-full rounded-3xl  max-lg:h-[400px] object-fill block h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70  `}>
+                <img src={`${TMDBUrl.OriginalImage}${movieDetails.backdrop_path}`} className={` w-full rounded-3xl  max-lg:h-[400px] object-fill block h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70  `}>
                 </img>
                 <div className='absolute bg-gradient-to-t from-slate-600 w-[99%]  rounded-3xl  max-lg:h-[400px] object-fill  h-[490px] mx-2 max-sm:mx-1 max-md:h-96 scale-100 max-sm:scale-y-70 items-center justify-center flex   '>
 
                     {movieDetails.poster_path && <div className=' mx-8 max-xs:hidden'>
-                        <img src={`https://image.tmdb.org/t/p/original/${movieDetails.poster_path}`} className='w-64 h-auto rounded-md' />
+                        <img src={`${TMDBUrl.OriginalImage}/${movieDetails.poster_path}`} className='w-64 h-auto rounded-md' />
                     </div>}
                     {movieDetails.release_date && <div className='relative text-white w-11/12 flex flex-col' >
                         <div className='flex items-center'>
